@@ -157,9 +157,7 @@
     footer{margin-top:18px; color:var(--muted); font-size:14px}
     .hr{height:1px; background:var(--line); margin:14px 0}
 
-    /* =========================================================
-       Hover effect: gentle scale + lift + brighten
-       ========================================================= */
+    /* ===== Hover effect (cards + header) ===== */
     header, .card{
       transition: transform 180ms ease,
                   filter 180ms ease,
@@ -211,12 +209,123 @@
     </div>
   </header>
 
-  <!-- 이하 body 내용은 그대로 (이미지/텍스트 동일) -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#papers">Papers</a>
+    <a href="#events">Events</a>
+    <a href="#teaching">Teaching & Photos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="grid">
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p class="muted">
+        I work on nonlinear PDEs arising in fluid/plasma models:
+        hyperbolic conservation laws, kinetic theory, and stability/singularity
+        of nonlinear waves.
+      </p>
+      <div class="chips">
+        <span class="chip">PDE</span>
+        <span class="chip">Hyperbolic conservation laws</span>
+        <span class="chip">Kinetic theory</span>
+        <span class="chip">Nonlinear waves</span>
+        <span class="chip">Singularity & stability</span>
+      </div>
+      <div class="hr"></div>
+      <h2>Professional</h2>
+      <ul class="list">
+        <li>Full Professor, UNIST (2023–present)</li>
+        <li>Associate Professor, UNIST (2016–2022)</li>
+        <li>Assistant Professor, UNIST (2012–2016)</li>
+        <li>Visiting Assistant Professor, Texas A&amp;M University (2009–2012)</li>
+        <li>Ph.D., Mathematics, Indiana University Bloomington (2009)</li>
+      </ul>
+    </section>
+
+    <section id="research" class="card">
+      <h2>Research themes</h2>
+      <div class="two-col">
+        <div>
+          <p><b>Singularity formation & sharp regularity</b></p>
+          <p class="muted">Gradient blow-up, self-similar dynamics, refined asymptotics.</p>
+        </div>
+        <div>
+          <p><b>Stability of nonlinear waves</b></p>
+          <p class="muted">Shock profiles, solitary waves, spectral/energy methods.</p>
+        </div>
+        <div>
+          <p><b>Plasma / Euler–Poisson / NSP</b></p>
+          <p class="muted">Quasi-neutral limits, boundary layers, long-time behavior.</p>
+        </div>
+        <div>
+          <p><b>Kinetic & interacting particle models</b></p>
+          <p class="muted">Vlasov-type PDEs, collective dynamics, fluid coupling.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="papers" class="card" style="margin-top:16px;">
+    <h2>Selected papers</h2>
+
+    <div class="pub">
+      <b>Sharp regularity of gradient blow-up solutions in the Camassa–Holm equation</b><br/>
+      <span class="meta">Y. Kim, B. Kwon, J. Yoon (preprint, 2024)</span>
+    </div>
+
+    <div class="pub">
+      <b>Long-time behavior towards shock profiles for the Navier–Stokes–Poisson system</b><br/>
+      <span class="meta">M.-J. Kang, B. Kwon, W. Shim (JDE, 2025)</span>
+    </div>
+
+    <details>
+      <summary class="muted" style="cursor:pointer;">Full publication list</summary>
+      <p class="muted">
+        <a href="https://scholar.google.com/citations?hl=en&user=GzuO2OYAAAAJ">Google Scholar</a>
+      </p>
+    </details>
+  </section>
+
+  <section id="events" class="card" style="margin-top:16px;">
+    <h2>Events</h2>
+    <ul class="list">
+      <li><b>The 43rd Kyushu Symposium on Partial Differential Equations</b> (Jan 26–28, 2026)</li>
+      <li><b>Korea–Japan Workshop on Mathematical Analysis of Compressible Fluids</b> (Nov 6–8, 2025)</li>
+    </ul>
+  </section>
+
+  <section id="teaching" class="card" style="margin-top:16px;">
+    <h2>Teaching & lecture photos</h2>
+    <div class="gallery">
+      <div class="gimg"><img src="assets/lecture1.jpg" alt=""></div>
+      <div class="gimg"><img src="assets/lecture2.jpg" alt=""></div>
+      <div class="gimg"><img src="assets/lecture3.jpg" alt=""></div>
+      <div class="gimg"><img src="assets/lecture4.jpg" alt=""></div>
+      <div class="gimg"><img src="assets/lecture5.jpg" alt=""></div>
+      <div class="gimg"><img src="assets/lecture6.jpg" alt=""></div>
+    </div>
+  </section>
+
+  <section id="contact" class="card" style="margin-top:16px;">
+    <h2>Contact</h2>
+    <p class="muted">
+      Department of Mathematical Sciences, UNIST<br/>
+      Ulsan 44919, Republic of Korea<br/>
+      Email: <a href="mailto:bkwon@unist.ac.kr">bkwon@unist.ac.kr</a>
+    </p>
+  </section>
+
+  <footer>
+    <div class="hr"></div>
+    <div>© <span id="y"></span> Bongsuk Kwon</div>
+  </footer>
 
 </div>
 
 <script>
-  document.getElementById("y")?.textContent = new Date().getFullYear();
+  document.getElementById("y").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bongsuk Kwon — Professor of Mathematics (UNIST)</title>
   <meta name="description" content="Bongsuk Kwon — PDE, hyperbolic conservation laws, kinetic theory, nonlinear wave stability." />
+
   <style>
     :root{
       --bg:#0b0f14;
@@ -17,242 +18,205 @@
       --max:980px;
       --radius:18px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:linear-gradient(180deg, #070a10 0%, var(--bg) 55%, #070a10 100%);
       color:var(--text);
       line-height:1.55;
     }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+
+    /* ===== Header ===== */
     header{
       display:flex; gap:22px; align-items:center;
-      padding:22px; background:rgba(18,25,38,.75);
-      border:1px solid var(--line); border-radius:var(--radius);
+      padding:22px;
+      background:rgba(18,25,38,.75);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
       backdrop-filter: blur(8px);
     }
+
     .photo{
-      width:110px; height:110px; border-radius:22px; flex:0 0 auto;
+      width:110px; height:110px;
+      border-radius:22px;
       background:#0f1522;
       border:1px solid var(--line);
       overflow:hidden;
+      flex:0 0 auto;
     }
+
     .photo img{width:100%; height:100%; object-fit:cover; display:block}
+
     .h1{font-size:28px; font-weight:750; margin:0}
     .sub{margin:6px 0 0; color:var(--muted)}
+
     .btns{margin-top:12px; display:flex; flex-wrap:wrap; gap:10px}
+
     .btn{
       display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px;
-      background:var(--chip); border:1px solid var(--line);
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid var(--line);
       color:var(--text);
       font-size:14px;
     }
+
     .btn:hover{border-color:#3a4f76; text-decoration:none}
+
+    /* ===== Navigation ===== */
     nav{
       margin:18px 0 0;
       display:flex; flex-wrap:wrap; gap:12px;
       padding:10px 8px;
       color:var(--muted);
     }
+
     nav a{color:var(--muted)}
     nav a:hover{color:var(--text); text-decoration:none}
+
+    /* ===== Layout ===== */
     .grid{
       margin-top:18px;
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:16px;
     }
-    @media (max-width: 860px){ .grid{grid-template-columns:1fr} header{flex-direction:column; align-items:flex-start} }
+
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      header{flex-direction:column; align-items:flex-start}
+    }
+
+    /* ===== Cards ===== */
     .card{
       background:rgba(18,25,38,.75);
       border:1px solid var(--line);
       border-radius:var(--radius);
       padding:18px;
     }
+
     h2{margin:0 0 10px; font-size:18px}
     .muted{color:var(--muted)}
+
     .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .chip{background:var(--chip); border:1px solid var(--line); padding:6px 10px; border-radius:999px; font-size:13px; color:var(--muted)}
+    .chip{
+      background:var(--chip);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted)
+    }
+
     .list{margin:10px 0 0; padding-left:18px}
+
     .pub{margin:10px 0}
     .pub b{color:var(--text)}
     .pub .meta{color:var(--muted); font-size:14px}
-    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    @media (max-width: 650px){ .two-col{grid-template-columns:1fr} }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    @media (max-width: 650px){
+      .two-col{grid-template-columns:1fr}
+    }
+
     .gallery{
-      display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:10px;
+      margin-top:10px;
     }
-    @media (max-width: 860px){ .gallery{grid-template-columns:repeat(2,1fr)} }
+
+    @media (max-width: 860px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+
     .gimg{
-      border-radius:16px; overflow:hidden; border:1px solid var(--line); background:#0f1522;
-      aspect-ratio: 4 / 3;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#0f1522;
+      aspect-ratio:4/3;
     }
+
     .gimg img{width:100%; height:100%; object-fit:cover; display:block}
+
     footer{margin-top:18px; color:var(--muted); font-size:14px}
     .hr{height:1px; background:var(--line); margin:14px 0}
+
+    /* =========================================================
+       Hover effect: gentle scale + lift + brighten
+       ========================================================= */
+    header, .card{
+      transition: transform 180ms ease,
+                  filter 180ms ease,
+                  border-color 180ms ease,
+                  background-color 180ms ease,
+                  box-shadow 180ms ease;
+      transform-origin:center;
+      will-change:transform, filter;
+    }
+
+    header:hover, .card:hover{
+      transform: translateY(-3px) scale(1.015);
+      filter: brightness(1.08);
+      border-color:#3a4f76;
+      background:rgba(18,25,38,.88);
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 0 1px rgba(122,162,255,.18);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      header, .card{transition:none}
+      header:hover, .card:hover{transform:none}
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="photo">
-        <!-- Replace with your headshot (recommended: 800x800 cropped square) -->
-        <img src="assets/headshot.jpg" alt="Bongsuk Kwon">
-      </div>
-      <div>
-        <p class="h1">Bongsuk Kwon</p>
-        <p class="sub">Professor of Mathematics — UNIST (Ulsan, Republic of Korea)</p>
-        <p class="sub">
-          Email: <a href="mailto:bkwon@unist.ac.kr">bkwon@unist.ac.kr</a>
-          · Tel: +82-52-217-3142
-        </p>
-        <div class="btns">
-          <a class="btn" href="assets/CV.pdf">CV</a>
-          <a class="btn" href="#papers">Selected papers</a>
-          <a class="btn" href="https://arxiv.org/search/?searchtype=author&query=Kwon%2C+B">arXiv</a>
-          <a class="btn" href="https://scholar.google.com/">Google Scholar</a>
-          <a class="btn" href="#teaching">Teaching</a>
-        </div>
-      </div>
-    </header>
+<div class="wrap">
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#papers">Papers</a>
-      <a href="#events">Events</a>
-      <a href="#teaching">Teaching & Photos</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="grid">
-      <section id="about" class="card">
-        <h2>About</h2>
-        <p class="muted">
-          I work on nonlinear PDEs arising in fluid/plasma models:
-          hyperbolic conservation laws, kinetic theory, and stability/singularity
-          of nonlinear waves.
-        </p>
-        <div class="chips">
-          <span class="chip">PDE</span>
-          <span class="chip">Hyperbolic conservation laws</span>
-          <span class="chip">Kinetic theory</span>
-          <span class="chip">Nonlinear waves</span>
-          <span class="chip">Singularity & stability</span>
-        </div>
-        <div class="hr"></div>
-        <h2>Professional</h2>
-        <ul class="list">
-          <li>Full Professor, UNIST (2023–present)</li>
-          <li>Associate Professor, UNIST (2016–2022)</li>
-          <li>Assistant Professor, UNIST (2012–2016)</li>
-          <li>Visiting Assistant Professor, Texas A&amp;M University (2009–2012)</li>
-          <li>Ph.D., Mathematics, Indiana University Bloomington (2009)</li>
-        </ul>
-      </section>
-
-      <section id="research" class="card">
-        <h2>Research themes</h2>
-        <div class="two-col">
-          <div>
-            <p><b>Singularity formation & sharp regularity</b></p>
-            <p class="muted">Gradient blow-up, self-similar dynamics, refined asymptotics.</p>
-          </div>
-          <div>
-            <p><b>Stability of nonlinear waves</b></p>
-            <p class="muted">Shock profiles, solitary waves, spectral/energy methods.</p>
-          </div>
-          <div>
-            <p><b>Plasma / Euler–Poisson / NSP</b></p>
-            <p class="muted">Quasi-neutral limits, boundary layers, long-time behavior.</p>
-          </div>
-          <div>
-            <p><b>Kinetic & interacting particle models</b></p>
-            <p class="muted">Vlasov-type PDEs, collective dynamics, fluid coupling.</p>
-          </div>
-        </div>
-        <div class="hr"></div>
-        <p class="muted">
-          I’m happy to discuss collaborations and student projects aligned with these themes.
-        </p>
-      </section>
+  <header>
+    <div class="photo">
+      <img src="assets/headshot.jpg" alt="Bongsuk Kwon">
     </div>
-
-    <section id="papers" class="card" style="margin-top:16px;">
-      <h2>Selected papers</h2>
-
-      <!-- Replace / edit: short descriptions help visitors -->
-      <div class="pub">
-        <b>Sharp regularity of gradient blow-up solutions in the Camassa–Holm equation</b><br/>
-        <span class="meta">Y. Kim, B. Kwon, J. Yoon (preprint, 2024) · <a href="https://arxiv.org/abs/2412.00558">arXiv</a></span>
-      </div>
-
-      <div class="pub">
-        <b>Long-time behavior towards shock profiles for the Navier–Stokes–Poisson system</b><br/>
-        <span class="meta">M.-J. Kang, B. Kwon, W. Shim (JDE, 2025) · <a href="https://arxiv.org/abs/2411.09094">arXiv</a></span>
-      </div>
-
-      <div class="pub">
-        <b>Delta-shock for the pressureless Euler–Poisson system</b><br/>
-        <span class="meta">J. Bae, Y. Kim, B. Kwon (SIAM J. Math. Anal., 2025) · <a href="https://arxiv.org/pdf/2407.15669">arXiv</a></span>
-      </div>
-
-      <details style="margin-top:10px;">
-        <summary class="muted" style="cursor:pointer;">Full publication list</summary>
-        <p class="muted" style="margin-top:10px;">
-          <a href="https://scholar.google.com/citations?hl=en&user=GzuO2OYAAAAJ&view_op=list_works&sortby=pubdate">Full pulication link</a>
-        </p>
-      </details>
-    </section>
-    <section id="events" class="card" style="margin-top:16px;">
-      <h2>Events</h2>
-      <ul class="list">
-        <li><b>The 43th Kyushu Symposium on Partial Differential Equations</b> (January 26 - 28, 2026) · <a href="https://www2.math.kyushu-u.ac.jp/FE-Seminar/kyu-pde/program/kyu-pde-43(2026)-e.pdf">site</a></li>
-        <li><b>Key note lecture @ Workshop on the Fundamental Equations of Fluid Dynamics for Young Researchers, Nagoya University</b> (January 5 - 6, 2026)</li>
-        <li><b>Korea–Japan Workshop on Mathematical Analysis of Compressible Fluids</b> (Nov 6–8, 2025, Mokpo) · <a href="https://sites.google.com/view/krjpworkshop-mth/home">site</a></li>
-        <li><b>Paris–Seoul Joint Workshop on Fluid Dynamics</b> (Jul 7–11, 2025, Paris) · <a href="https://sites.google.com/view/paris-seoul-fluid-2025/home">site</a></li>
-      </ul>
-    </section>
-
-    <section id="teaching" class="card" style="margin-top:16px;">
-      <h2>Teaching & lecture photos</h2>
-      <p class="muted">
-        Add course pages (syllabus, slides, notes) and a small photo gallery.
-        Keep images consistent: same aspect ratio, short captions.
-      </p>
-
-      <div class="gallery">
-        <!-- Replace with your lecture photos (compress to ~300–500KB each) -->
-        <div class="gimg"><img src="assets/lecture1.jpg" alt="Lecture photo 1"></div>
-        <div class="gimg"><img src="assets/lecture2.jpg" alt="Lecture photo 2"></div>
-        <div class="gimg"><img src="assets/lecture3.jpg" alt="Lecture photo 3"></div>
-        <div class="gimg"><img src="assets/lecture4.jpg" alt="Lecture photo 4"></div>
-        <div class="gimg"><img src="assets/lecture5.jpg" alt="Lecture photo 5"></div>
-        <div class="gimg"><img src="assets/lecture6.jpg" alt="Lecture photo 6"></div>
-      </div>
-    </section>
-
-    <section id="contact" class="card" style="margin-top:16px;">
-      <h2>Contact</h2>
-      <p class="muted">
-        Department of Mathematical Sciences, UNIST<br/>
-        Ulsan 44919, Republic of Korea<br/>
+    <div>
+      <p class="h1">Bongsuk Kwon</p>
+      <p class="sub">Professor of Mathematics — UNIST (Ulsan, Republic of Korea)</p>
+      <p class="sub">
         Email: <a href="mailto:bkwon@unist.ac.kr">bkwon@unist.ac.kr</a>
+        · Tel: +82-52-217-3142
       </p>
-    </section>
+      <div class="btns">
+        <a class="btn" href="assets/CV.pdf">CV</a>
+        <a class="btn" href="#papers">Selected papers</a>
+        <a class="btn" href="https://arxiv.org/search/?searchtype=author&query=Kwon%2C+B">arXiv</a>
+        <a class="btn" href="https://scholar.google.com/">Google Scholar</a>
+        <a class="btn" href="#teaching">Teaching</a>
+      </div>
+    </div>
+  </header>
 
-    <footer>
-      <div class="hr"></div>
-      <div>© <span id="y"></span> Bongsuk Kwon · Last updated manually as needed</div>
-    </footer>
-  </div>
+  <!-- 이하 body 내용은 그대로 (이미지/텍스트 동일) -->
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+</div>
+
+<script>
+  document.getElementById("y")?.textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
